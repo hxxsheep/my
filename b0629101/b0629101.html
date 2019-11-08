@@ -340,12 +340,33 @@
   <script data-source="gwdpagedeck_min.js" data-version="12" data-exports-type="gwd-pagedeck" src="gwdpagedeck_min.js"></script>
   <script data-source="gwdgenericad_min.js" data-version="5" data-exports-type="gwd-genericad" src="gwdgenericad_min.js"></script>
   <script data-source="gwdimage_min.js" data-version="13" data-exports-type="gwd-image" src="gwdimage_min.js"></script>
+  <script type="text/javascript" gwd-events="support" src="gwd-events-support.1.0.js"></script>
+  <script type="text/javascript" gwd-events="handlers">
+    gwd.auto_Page1Event_1 = function(event) {
+      // GWD Predefined Function
+      gwd.actions.timeline.gotoAndPlay('page1', 'star');
+    };
+  </script>
+  <script type="text/javascript" gwd-events="registration">
+    // Google Web Designer 中處理事件的支援程式碼
+    // 這個指令碼區塊是自動產生的，請勿編輯！
+    gwd.actions.events.registerEventHandlers = function(event) {
+      gwd.actions.events.addHandler('page1', 'event-1', gwd.auto_Page1Event_1, false);
+      gwd.actions.timeline.captureAnimationEnd(document.body);
+    };
+    gwd.actions.events.deregisterEventHandlers = function(event) {
+      gwd.actions.events.removeHandler('page1', 'event-1', gwd.auto_Page1Event_1, false);
+      gwd.actions.timeline.releaseAnimationEnd(document.body);
+    };
+    document.addEventListener("DOMContentLoaded", gwd.actions.events.registerEventHandlers);
+    document.addEventListener("unload", gwd.actions.events.deregisterEventHandlers);
+  </script>
 </head>
 
 <body>
   <gwd-genericad id="gwd-ad">
     <gwd-pagedeck class="gwd-page-container" id="pagedeck">
-      <gwd-page id="page1" class="gwd-page-wrapper gwd-page-size gwd-lightbox" data-gwd-width="300px" data-gwd-height="250px">
+      <gwd-page id="page1" class="gwd-page-wrapper gwd-page-size gwd-lightbox" data-gwd-width="300px" data-gwd-height="250px" data-gwd-animation-labels="star,0">
         <div class="gwd-page-content gwd-page-size">
           <svg data-gwd-shape="rectangle" class="gwd-rect-1183" data-gwd-tl-locked=""></svg>
           <gwd-image id="gwd-image_1" source="assets/雪花.gif" scaling="stretch" class="gwd-image-uo4t gwd-gen-1ta8gwdanimation" data-gwd-tl-locked=""></gwd-image>
@@ -362,6 +383,7 @@
           <gwd-image id="0" source="assets/0.gif" scaling="stretch" class="gwd-image-1rv0 gwd-gen-ui2pgwdanimation" data-gwd-tl-locked=""></gwd-image>
           <p class="gwd-p-8xlh gwd-gen-1limgwdanimation" data-gwd-tl-locked="">Merry Xmas!<span class="gwd-span-kynh">26</span></p>
           <gwd-image id="CQimXEN" source="assets/CQimXEN.gif" scaling="stretch" class="gwd-image-qr24 gwd-gen-8tykgwdanimation"></gwd-image>
+          <div class="gwd-animation-event event-1-animation" data-event-name="event-1" data-event-time="10000"></div>
         </div>
       </gwd-page>
     </gwd-pagedeck>
